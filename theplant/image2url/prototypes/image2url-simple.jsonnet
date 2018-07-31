@@ -7,7 +7,7 @@
 
 
 local k = import "k.libsonnet";
-local i2l = import 'image2url/image2url.libsonnet';
+local i2l = import 'theplant/image2url/image2url.libsonnet';
 
 local namespace = import 'param://namespace';
 local appName = import 'param://name';
