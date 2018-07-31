@@ -5,7 +5,7 @@
 // @param namespace string Namespace in which to put the application
 // @param name string Name to give to all components.
 // @param image string image.
-// @param port integer port of container.
+// @param port number port of container.
 
 
 local k = import "k.libsonnet";
