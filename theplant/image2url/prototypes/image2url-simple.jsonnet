@@ -6,6 +6,7 @@
 // @param name string Name to give to all components.
 // @param image string image.
 // @param port number port of container.
+// @param configmap string configmap of container.
 
 
 local k = import "k.libsonnet";
@@ -15,8 +16,9 @@ local namespace = import 'param://namespace';
 local appName = import 'param://name';
 local image = import 'param://image';
 local port = import 'param://port';
+local configmap = import 'param://configmap';
 
 k.core.v1.list.new([
-  i2l.parts.deployment(namespace, appName, image, port),
+  i2l.parts.deployment(namespace, appName, image, port, configmap),
   i2l.parts.svc(namespace, appName, port)
 ])

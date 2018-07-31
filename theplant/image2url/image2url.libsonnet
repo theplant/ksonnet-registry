@@ -26,7 +26,7 @@ local k = import "k.libsonnet";
       },
     },
 
-    deployment(namespace, name, image, port, replicas=1, labels={app: name}, imagePullSecrets="the-plant-registry")::{
+    deployment(namespace, name, image, port, configmap, replicas=1, labels={app: name}, imagePullSecrets="the-plant-registry")::{
       apiVersion: "extensions/v1beta1",
       kind: "Deployment",
       metadata: {
@@ -54,7 +54,7 @@ local k = import "k.libsonnet";
                 envFrom: [
                     {
                         configMapRef: {
-                            name: "cm-%s" % name,
+                            name: configmap,
                         },
                     },
                 ],
