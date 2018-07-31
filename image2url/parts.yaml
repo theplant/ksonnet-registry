@@ -2,3 +2,10 @@ apiVersion: '0.0.1'
 kind: ksonnet.io/parts
 name: image2url
 description: Deploy a image and expose a URL
+quickStart:
+  prototype: jp.theplant.pkg.image2url
+  componentName: image2url
+    flags:
+      name: app1
+      namespace: default
+  comment: Run a image and expose to a url
