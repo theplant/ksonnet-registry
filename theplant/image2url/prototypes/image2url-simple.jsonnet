@@ -4,6 +4,8 @@
 // @shortDescription Deploy a docker image and expose a url.
 // @param namespace string Namespace in which to put the application
 // @param name string Name to give to all components.
+// @param image string image.
+// @param port integer port of container.
 
 
 local k = import "k.libsonnet";
