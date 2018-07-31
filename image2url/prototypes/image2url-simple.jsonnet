@@ -1,3 +1,11 @@
+// @apiVersion 0.0.1
+// @name jp.theplant.pkg.image2url
+// @description Deploy a docker image and expose a url.
+// @shortDescription Deploy a docker image and expose a url.
+// @param namespace string Namespace in which to put the application
+// @param name string Name to give to all components.
+
+
 local k = import "k.libsonnet";
 local i2l = import 'image2url/image2url.libsonnet';
 
