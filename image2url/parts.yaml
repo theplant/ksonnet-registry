@@ -1,11 +1,33 @@
-apiVersion: '0.0.1'
-kind: ksonnet.io/parts
-name: image2url
-description: Deploy a image and expose a URL
-quickStart:
-  prototype: jp.theplant.pkg.image2url
-  componentName: image2url
-    flags:
-      name: app1
-      namespace: default
-  comment: Run a image and expose to a url
+{
+  "name": "nginx",
+  "apiVersion": "0.0.1",
+  "kind": "ksonnet.io/parts",
+  "description": "Deploy a image and expose a URL",
+  "author": "Felix Sun <felix@theplant.jp>",
+  "contributors": [
+    {
+    "name": "Felix Sun",
+    "email": "felix@theplant.jp"
+    },
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theplant/ksonnet-registry"
+  },
+  "bugs": {
+    "url": "https://github.com/theplant/ksonnet-registry/issues"
+  },
+  "keywords": [
+    "image2url",
+  ],
+  "quickStart": {
+    "prototype": "jp.theplant.pkg.image2url",
+    "componentName": "image2url",
+    "flags": {
+      "name": "app1",
+      "namespace": "default"
+    },
+    "comment": "Run a image and expose to a url"
+  },
+  "license": "MIT"
+}
