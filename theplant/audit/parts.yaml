@@ -1,0 +1,31 @@
+{
+  "name": "audit",
+  "apiVersion": "0.0.1",
+  "kind": "ksonnet.io/parts",
+  "description": "Provides a security-relevant chronological set of records documenting the sequence of activities that have affected system by individual users, administrators or other components of the system",
+  "author": "Yang Li <idealhack@theplant.jp>",
+  "contributors": [
+    {
+    "name": "Yang Li",
+    "email": "idealhack@theplant.jp"
+    },
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theplant/ksonnet-registry"
+  },
+  "bugs": {
+    "url": "https://github.com/theplant/ksonnet-registry/issues"
+  },
+  "keywords": [
+    "audit",
+  ],
+  "quickStart": {
+    "prototype": "jp.theplant.pkg.audit",
+    "componentName": "audit",
+    "flags": {
+    },
+    "comment": "Log all requests at the Metadata level"
+  },
+  "license": "MIT"
+}
