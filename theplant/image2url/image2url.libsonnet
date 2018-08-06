@@ -14,7 +14,7 @@ local k = import "k.libsonnet";
         },
       },
       spec: {
-        type: "LoadBalancer",
+        type: "ClusterIP",
         ports: [
           {
             name: "app",
@@ -24,6 +24,39 @@ local k = import "k.libsonnet";
         ],
         selector: selector
       },
+    },
+
+    ingress(namespace, name, port, host, path="/"):: {
+        apiVersion: "extensions/v1beta1",
+        kind: "Ingress",
+        metadata: {
+            name: name,
+            namespace: namespace,
+            annotations: {
+                "nginx.ingress.kubernetes.io/rewrite-target": "/",
+            },
+            labels: {
+                app: name
+            },
+        },
+        spec: {
+            rules: [
+                {
+                    host: host,
+                    http: {
+                        paths: [
+                            {
+                                path: path,
+                                backend: {
+                                    serviceName: name,
+                                    servicePort: port,
+                                },
+                            },
+                        ],
+                    },
+                },
+            ],
+        },
     },
 
     deployment(namespace, name, image, port, configmap, replicas=1, labels={app: name}, imagePullSecrets="the-plant-registry")::{

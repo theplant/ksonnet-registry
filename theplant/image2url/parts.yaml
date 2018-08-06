@@ -25,7 +25,9 @@
     "componentName": "image2url",
     "flags": {
       "name": "app1",
-      "namespace": "default"
+      "namespace": "default",
+      "port": "4000",
+      "path": "/",
     },
     "comment": "Run a image and expose to a url"
   },
