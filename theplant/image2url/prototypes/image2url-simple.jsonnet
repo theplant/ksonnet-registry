@@ -9,6 +9,8 @@
 // @optionalParam namespace string default Namespace in which to put the application
 // @optionalParam port number 4000 port of container.
 // @optionalParam path string / path for ingress.
+// @optionalParam replicas number 1 replicas of pods.
+// @optionalParam imagePullSecrets string the-plant-registry secrets for pulling docker images.
 
 
 local k = import "k.libsonnet";
@@ -21,9 +23,11 @@ local port = import 'param://port';
 local configmap = import 'param://configmap';
 local domain = import 'param://domain';
 local path = import 'param://path';
+local replicas = import 'param://replicas';
+local imagePullSecrets = import 'param://imagePullSecrets';
 
 k.core.v1.list.new([
-  i2l.parts.deployment(namespace, appName, image, port, configmap),
+  i2l.parts.deployment(namespace, appName, image, port, configmap, replicas, imagePullSecrets),
   i2l.parts.svc(namespace, appName, port),
   i2l.parts.ingress(namespace, appName, port, domain, path),
 ])

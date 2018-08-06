@@ -59,7 +59,8 @@ local k = import "k.libsonnet";
         },
     },
 
-    deployment(namespace, name, image, port, configmap, replicas=1, labels={app: name}, imagePullSecrets="the-plant-registry")::{
+    deployment(namespace, name, image, port, configmap, replicas, imagePullSecrets)::{
+      local labels={app: name},
       apiVersion: "extensions/v1beta1",
       kind: "Deployment",
       metadata: {
